@@ -4,8 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Dashboard</title>
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kalam|Audiowide|Sofia|Trirong">
 <style>
   /* ... Your existing styles ... */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+  }
+
   label, select, button, input {
     margin: 5px;
   }
@@ -15,7 +23,6 @@
     border: none;
     border-radius: 5px;
     background-color: #2E8B57;
-    color: white;
     cursor: pointer;
   }
 
@@ -27,13 +34,7 @@
     cursor: pointer;
   }
 
-  body {
-    margin: 0;
-    padding: 0;
-    background-color: black;
-    font-family: Arial, sans-serif;
-    color: white;
-  }
+  
 
   .dashboard {
     display: flex;
@@ -41,7 +42,6 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: black;
   }
 
   .card {
@@ -56,16 +56,15 @@
   .card h2 {
     margin: 0;
     padding: 0;
-    color: white;
   }
 
   .card p {
-    color: #ccc;
   }
 
   .card .department {
     font-style: italic;
   }
+
 </style>
 <script>
   // Sample data for the cards
@@ -160,24 +159,33 @@
 </head>
 <body>
   
-  <div>
-    <label for="departmentFilter">Filter by Department:</label>
-
-    <select id="departmentFilter" onchange="filterCardsByDepartment(this.value)">
-      <option value="">All Departments</option>
-      <option value="technical">Technical</option>
-      <option value="electrical">Electrical</option>
-      <option value="others">Others</option>
+  <div style="justify-content: center; background-color: rgba(143, 193, 240, 0.281); box-shadow: 0 4px 6px rgba(48, 48, 48, 0.158);">
+    <br>
+    <!-- <label for="departmentFilter" style="font-size: 18px; margin-left: 30px;">Filter by Department:</label> -->
+    <input placeholder="Search" style="margin-left: 50px; font-size: 18px; background-color: white; border: solid; border-color: #302e2e57;" type="text" id="searchInput"  oninput="searchCardsByTitle(this.value)">
+   
+    <select style="font-size: 18px; background-color: transparent; border: none; " id="departmentFilter" onchange="filterCardsByDepartment(this.value)">
+      <option style="font-size: 18px;" value="">Filter by</option>
+      <option style="font-size: 18px;" value="technical">Technical</option>
+      <option style="font-size: 18px;" value="electrical">Electrical</option>
+      <option style="font-size: 18px;" value="others">Others</option>
     </select>
     
-    <button onclick="sortCardsByTitle()">Sort by Title</button>
+    <button style="font-size: 18px; background-color: transparent; border: none;" onclick="sortCardsByTitle()">Sort by Title</button>
     
-    <input type="text" id="searchInput"  oninput="searchCardsByTitle(this.value)">
-    
-    <button onclick="exportDataForAnalysis()">Export Data</button>
+     
+    <button style="font-size: 18px; background-color: transparent; border: none;" onclick="exportDataForAnalysis()">Export Data</button>
 
-    <button onclick="locateToResolver()">Create a resolver</button>
+    <button style="font-size: 18px; background-color: transparent; border: none;" onclick="locateToResolver()">Create Resolver</button>
+    
+
+    <button style="font-size: 18px; background-color: transparent; border: none; margin-left: 600px; font-family: audiowide;" >Admin</button>
+
+    <br>
+    <br style="">
   </div>
+  
+
 
   <div class="dashboard">
     <!-- Cards will be rendered here using JavaScript -->
